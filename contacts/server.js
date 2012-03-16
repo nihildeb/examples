@@ -1,25 +1,9 @@
-//var express = require('express'),
-    //util    = require('util');
-
-//var app = express.createServer(
-  //connect.logger(),
-  //connect.static(__dirname),
-  //connect.static('..')
-//);
-
 var express = require('express');
 
 var app = module.exports = express.createServer();
 
 // Configuration
-
 app.configure(function(){
-  //app.set('views', __dirname + '/views');
-  //app.set('view engine', 'jade');
-  //app.use(express.bodyParser());
-  //app.use(express.methodOverride());
-  //app.use(express.cookieParser());
-  //app.use(express.session({ secret: 'your secret here' }));
   app.use(app.router);
   app.use(express.static(__dirname));
   app.use(express.static(__dirname + "/.."));
@@ -32,7 +16,6 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler());
 });
-
 
 
 var guid = 0;
